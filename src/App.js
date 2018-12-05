@@ -1,28 +1,22 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import store from './store';
+import AuthRoute from './AuthRoute';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+import UnauthRoute from './layouts/UnauthRoute';
+import MainLayout from './layouts/MainLayout';
+
+const App = props => (
+  <Provider store={store}>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/auth" component={UnauthRoute} />
+        <AuthRoute path="/app" component={MainLayout} />
+        <Redirect to="/auth" />
+      </Switch>
+    </BrowserRouter>
+  </Provider>
+);
 
 export default App;

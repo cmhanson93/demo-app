@@ -6,7 +6,7 @@ import TaskView from './TaskView'
 const TaskListView = ({ tasks, toggleTask }) => (
   <ul>
     {tasks.map(task => (
-      <Link to={`tasks/${task.id}`}>
+      <Link to={`tasks/${task.id}/${ task.text }`}>
         <TaskView key={task.id} {...task} onClick={() => toggleTask(task.id)} />
       </Link>
     ))}

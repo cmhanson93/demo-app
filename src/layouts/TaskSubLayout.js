@@ -13,9 +13,9 @@ const TaskSubLayout = ({ match }) => (
     </aside>
     <div className="content">
       <Switch>
-        <Route exact path={match.path} component={BrowseTaskView} />
-        <Route path={`${match.path}/add`} component={AddTaskView} />
-        <Route path={`${match.path}/:taskId`} component={TaskView} />
+        <Route exact path="/app/tasks" component={BrowseTaskView} />
+        <Route path="/app/tasks/add" component={AddTaskView} />
+        <Route path="/app/tasks/:taskId" component={TaskView} />
       </Switch>
     </div>
   </div>

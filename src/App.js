@@ -7,6 +7,8 @@ import AuthRoute from './AuthRoute';
 import UnauthRoute from './layouts/UnauthRoute';
 import MainLayout from './layouts/MainLayout';
 
+import './App.css';
+
 const App = props => (
   <Provider store={store}>
     <BrowserRouter>
